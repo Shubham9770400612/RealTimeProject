@@ -2,4 +2,8 @@
 
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd"></mule>
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="TravelOnTip-GetShcedules-ImplemetationFlow" doc:id="5ee2efe2-a57b-48b4-8e6d-01b8055794ac" >
+		<logger level="INFO" doc:name="Logger" doc:id="8e38af25-0906-49b4-bddd-48358826d8b9" />
+	</flow>
+</mule>

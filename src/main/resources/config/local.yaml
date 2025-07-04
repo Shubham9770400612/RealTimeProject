@@ -2,4 +2,13 @@ http:
   listener: 
     host: "localhost"
     port: "9081"
-    path: "/getRoutes"  
+    path: "/getRoutes/{serviceType}"  
+    
+   
+db:  
+  mysql:
+    port: "3306"
+    host: "localhost"
+    username: "root"
+    database: "mENTER"
+    
