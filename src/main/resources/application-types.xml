@@ -306,4 +306,5 @@ type auto_5ee2efe2_a57b_48b4_8e6d_01b8055794ac_Output_Variables_serviceType = St
       </types:output-event>
     </types:processor-declaration>
   </types:enrichment>
+  <types:enrichment select="#18750b27-8abb-45cd-826c-8e08fae5b2d6"/>
 </types:mule>

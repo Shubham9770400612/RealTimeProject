@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
-	<flow name="TravelOnTip-GetShcedules-ImplemetationFlow" doc:id="5ee2efe2-a57b-48b4-8e6d-01b8055794ac" >
-		<logger level="INFO" doc:name="Logger" doc:id="8e38af25-0906-49b4-bddd-48358826d8b9" />
-	</flow>
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<sub-flow name="TravelOnTip-GetShcedules-ImplemetationFlow" doc:id="5ee2efe2-a57b-48b4-8e6d-01b8055794ac" >
+		<db:select doc:name="Select Schedules for Travel and Tip" doc:id="2213bd38-8a07-4ded-8977-adfbcf8b78e4" config-ref="Database_Config">
+			<db:sql ><![CDATA[Select * from travelSchedules]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Db response in Json" doc:id="12035e8a-6526-4813-a1d6-0cf820efaae0" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</sub-flow>
 </mule>
